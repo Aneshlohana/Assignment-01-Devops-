@@ -1,0 +1,26 @@
+/* Styles for project section */
+#projects {
+    padding: 20px;
+}
+
+.project {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.project h3 {
+    color: #333;
+}
+
+.project p {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.project span {
+    color: #999;
+    font-size: 14px;
+}

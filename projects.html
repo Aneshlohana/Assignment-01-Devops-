@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="projects.css">
+</head>
+<body>
+    <section id="projects">
+        <h2>Projects</h2>
+        <input type="text" id="project-search" placeholder="Search projects by technology">
+            <div id="project-list">
+                <!-- Project items will be dynamically added here -->
+            </div>
+        <div class="project">
+            <h3>Project 1: Project Name</h3>
+            <p>Description of the project goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <span>Technology: C#</span>
+        </div>
+        <div class="project">
+            <h3>Project 2: Project Name</h3>
+            <p>Description of the project goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <span>Technology: Java</span>
+        </div>
+        <div class="project">
+            <h3>Project 3: Project Name</h3>
+            <p>Description of the project goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <span>Technology: Node.js</span>
+        </div>
+        <div class="project">
+            <h3>Project 4: Project Name</h3>
+            <p>Description of the project goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <span>Technology: Python</span>
+        </div>
+        <div class="project">
+            <h3>Project 5: Project Name</h3>
+            <p>Description of the project goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <span>Technology: HTML/CSS/JS</span>
+        </div>
+    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const projects = [
+        { name: 'Project 1', technology: 'C#' },
+        { name: 'Project 2', technology: 'Java' },
+        { name: 'Project 3', technology: 'Node.js' },
+        { name: 'Project 4', technology: 'Python' },
+        { name: 'Project 5', technology: 'HTML/CSS/JS' }
+    ];
+
+    const projectList = document.getElementById('project-list');
+    const searchInput = document.getElementById('project-search');
+
+    // Function to filter projects
+    function filterProjects() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const filteredProjects = projects.filter(project => {
+            return project.technology.toLowerCase().includes(searchTerm);
+        });
+        displayProjects(filteredProjects);
+    }
+
+    // Function to display filtered projects
+    function displayProjects(projects) {
+        projectList.innerHTML = '';
+        projects.forEach(project => {
+            const projectItem = document.createElement('div');
+            projectItem.classList.add('project');
+            projectItem.innerHTML = `
+                <h3>${project.name}</h3>
+                <p>Technology: ${project.technology}</p>
+            `;
+            projectList.appendChild(projectItem);
+        });
+    }
+
+    // Initial project list rendering
+    displayProjects(projects);
+
+    // Event listener for search input
+    searchInput.addEventListener('input', filterProjects);
+});
+
+    </script>
+</body>
+</html>
